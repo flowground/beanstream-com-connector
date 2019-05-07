@@ -1,0 +1,14 @@
+{
+    "type": "object",
+    "properties": {
+        "profileId": {
+            "required": true,
+            "type": "string"
+        },
+        "cardId": {
+            "required": true,
+            "type": "number",
+            "format": "integer"
+        }
+    }
+}

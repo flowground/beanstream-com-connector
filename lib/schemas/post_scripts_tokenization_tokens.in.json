@@ -1,0 +1,32 @@
+{
+    "type": "object",
+    "properties": {
+        "requestBody": {
+            "properties": {
+                "cvd": {
+                    "description": "a 3 to 4 digit representation of CVD/CDD. This is the number usually found on the back of the credit card.",
+                    "type": "string"
+                },
+                "expiry_month": {
+                    "description": "a 2 digit representation of the expiry month. For example March is 03.",
+                    "type": "string"
+                },
+                "expiry_year": {
+                    "description": "a 2 digit representation of the expiry year. For example 2016 is 16.",
+                    "type": "string"
+                },
+                "number": {
+                    "description": "The credit card number",
+                    "type": "string"
+                }
+            },
+            "required": [
+                "number",
+                "expiry_month",
+                "expiry_year",
+                "cvd"
+            ],
+            "type": "object"
+        }
+    }
+}

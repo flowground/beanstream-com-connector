@@ -1,0 +1,136 @@
+{
+    "type": "object",
+    "properties": {
+        "requestBody": {
+            "properties": {
+                "billing": {
+                    "properties": {
+                        "address_line1": {
+                            "description": "alphanumeric (64)",
+                            "type": "string"
+                        },
+                        "address_line2": {
+                            "description": "alphanumeric (64)",
+                            "type": "string"
+                        },
+                        "city": {
+                            "description": "alphanumeric (32)",
+                            "type": "string"
+                        },
+                        "country": {
+                            "description": "characters (2)",
+                            "type": "string"
+                        },
+                        "email_address": {
+                            "description": "alphanumeric (32)",
+                            "type": "string"
+                        },
+                        "name": {
+                            "description": "alphanumeric (64)",
+                            "type": "string"
+                        },
+                        "phone_number": {
+                            "description": "alphanumeric (32)",
+                            "type": "string"
+                        },
+                        "postal_code": {
+                            "description": "alphanumeric (16)",
+                            "type": "string"
+                        },
+                        "province": {
+                            "description": "characters (2)",
+                            "type": "string"
+                        }
+                    },
+                    "type": "object"
+                },
+                "card": {
+                    "properties": {
+                        "cvd": {
+                            "default": "123",
+                            "description": "Security code on the back of the credit card. This can be set to mandatory in the back office. digits(3)",
+                            "type": "string"
+                        },
+                        "expiry_month": {
+                            "default": "02",
+                            "description": "eg. 02 for February. digits(2)",
+                            "type": "string"
+                        },
+                        "expiry_year": {
+                            "default": "18",
+                            "description": "digits(2)",
+                            "type": "string"
+                        },
+                        "name": {
+                            "default": "5100000010001004",
+                            "description": "Card holder name. alphanumeric(64)",
+                            "type": "string"
+                        },
+                        "number": {
+                            "description": "Credit card number (PAN)  digits(20)",
+                            "type": "string"
+                        }
+                    },
+                    "required": [
+                        "name",
+                        "number",
+                        "expiry_month",
+                        "expiry_year"
+                    ],
+                    "type": "object"
+                },
+                "comment": {
+                    "description": "alphanumeric(256)",
+                    "type": "string"
+                },
+                "custom": {
+                    "properties": {
+                        "ref1": {
+                            "description": "alphanumeric (256)",
+                            "type": "string"
+                        },
+                        "ref2": {
+                            "description": "alphanumeric (256)",
+                            "type": "string"
+                        },
+                        "ref3": {
+                            "description": "alphanumeric (256)",
+                            "type": "string"
+                        },
+                        "ref4": {
+                            "description": "alphanumeric (256)",
+                            "type": "string"
+                        },
+                        "ref5": {
+                            "description": "alphanumeric (256)",
+                            "type": "string"
+                        }
+                    },
+                    "type": "object"
+                },
+                "language": {
+                    "description": "characters(2)",
+                    "type": "string"
+                },
+                "token": {
+                    "properties": {
+                        "code": {
+                            "description": "The token received from the client-side tokenization service. alphanumeric(64)",
+                            "type": "string"
+                        },
+                        "name": {
+                            "description": "alphanumeric(64)",
+                            "type": "string"
+                        }
+                    },
+                    "required": [
+                        "name",
+                        "code"
+                    ],
+                    "type": "object"
+                }
+            },
+            "type": "object"
+        }
+    }
+}

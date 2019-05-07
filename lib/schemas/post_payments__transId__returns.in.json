@@ -1,0 +1,27 @@
+{
+    "type": "object",
+    "properties": {
+        "transId": {
+            "required": true,
+            "type": "number",
+            "format": "double"
+        },
+        "requestBody": {
+            "properties": {
+                "amount": {
+                    "description": "The amount of the transaction to return. Must be less than or equal to the original purchase amount.",
+                    "format": "double",
+                    "type": "number"
+                },
+                "order_number": {
+                    "description": "alphanumeric (30)",
+                    "type": "string"
+                }
+            },
+            "required": [
+                "amount"
+            ],
+            "type": "object"
+        }
+    }
+}

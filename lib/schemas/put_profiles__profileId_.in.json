@@ -1,0 +1,101 @@
+{
+    "type": "object",
+    "properties": {
+        "profileId": {
+            "required": true,
+            "type": "string"
+        },
+        "requestBody": {
+            "properties": {
+                "billing": {
+                    "properties": {
+                        "address_line1": {
+                            "description": "alphanumeric (64)",
+                            "type": "string"
+                        },
+                        "address_line2": {
+                            "description": "alphanumeric (64)",
+                            "type": "string"
+                        },
+                        "city": {
+                            "description": "alphanumeric (32)",
+                            "type": "string"
+                        },
+                        "country": {
+                            "description": "characters (2)",
+                            "type": "string"
+                        },
+                        "email_address": {
+                            "description": "alphanumeric (32)",
+                            "type": "string"
+                        },
+                        "name": {
+                            "description": "alphanumeric (64)",
+                            "type": "string"
+                        },
+                        "phone_number": {
+                            "description": "alphanumeric (32)",
+                            "type": "string"
+                        },
+                        "postal_code": {
+                            "description": "alphanumeric (16)",
+                            "type": "string"
+                        },
+                        "province": {
+                            "description": "characters (2)",
+                            "type": "string"
+                        }
+                    },
+                    "type": "object"
+                },
+                "card": {
+                    "properties": {
+                        "code": {
+                            "description": "single use token associated with this account. alphanumeric(36)",
+                            "type": "string"
+                        },
+                        "name": {
+                            "description": "Name of cardholder. alphanumeric(64)",
+                            "type": "string"
+                        }
+                    },
+                    "type": "object"
+                },
+                "comment": {
+                    "description": "alphanumeric(256)",
+                    "type": "string"
+                },
+                "custom": {
+                    "properties": {
+                        "ref1": {
+                            "description": "alphanumeric (256)",
+                            "type": "string"
+                        },
+                        "ref2": {
+                            "description": "alphanumeric (256)",
+                            "type": "string"
+                        },
+                        "ref3": {
+                            "description": "alphanumeric (256)",
+                            "type": "string"
+                        },
+                        "ref4": {
+                            "description": "alphanumeric (256)",
+                            "type": "string"
+                        },
+                        "ref5": {
+                            "description": "alphanumeric (256)",
+                            "type": "string"
+                        }
+                    },
+                    "type": "object"
+                },
+                "language": {
+                    "description": "characters(2)",
+                    "type": "string"
+                }
+            },
+            "type": "object"
+        }
+    }
+}

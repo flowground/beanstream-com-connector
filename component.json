@@ -1,0 +1,289 @@
+{
+    "title": "Beanstream Payments",
+    "description": "https://www.beanstream.com/api/v1",
+    "docsUrl": "",
+    "url": "https://api.apis.guru/v2/specs/beanstream.com/1.0.1/swagger.json",
+    "envVars": {},
+    "credentials": {
+        "fields": {
+            "server": {
+                "label": "Server",
+                "viewClass": "SelectView",
+                "model": [
+                    "https://www.beanstream.com/api/v1",
+                    "--- Custom URL"
+                ],
+                "required": true
+            },
+            "otherServer": {
+                "label": "Custom Server URL",
+                "viewClass": "TextFieldView"
+            }
+        }
+    },
+    "triggers": {
+        "startFlow": {
+            "main": "./lib/triggers/startFlow.js",
+            "type": "polling",
+            "title": "Start Flow",
+            "fields": {}
+        }
+    },
+    "actions": {
+        "post_payments": {
+            "main": "./lib/actions/post_payments.js",
+            "title": "Make Payment",
+            "description": "Make a payment using credit card, cash, cheque, profile, or token. Each payment type has its own json definition passed in the body. For all payments you have the standard Billing, Shipping, Comments, etc. fields that are optional. Only the amount is required along with the payment data for card, cash, cheque, profile, and token. You must change the payment_method for each payment type. Credit Card - \"card\", Payment Profile - \"payment_profile\", Legato Token - \"token\", Cash - \"cash\", Cheque - \"cheque\", Interac - \"interac\"",
+            "fields": {
+                "verbose": {
+                    "viewClass": "CheckBoxView",
+                    "label": "Debug this step (log more data)"
+                }
+            },
+            "metadata": {
+                "in": "./lib/schemas/post_payments.in.json",
+                "out": {
+                    "type": "object"
+                }
+            }
+        },
+        "get_payments__transId_": {
+            "main": "./lib/actions/get_payments__transId_.js",
+            "title": "Get payment",
+            "description": "Get a previous payment (transaction).",
+            "fields": {
+                "verbose": {
+                    "viewClass": "CheckBoxView",
+                    "label": "Debug this step (log more data)"
+                }
+            },
+            "metadata": {
+                "in": "./lib/schemas/get_payments__transId_.in.json",
+                "out": {
+                    "type": "object"
+                }
+            }
+        },
+        "post_payments__transId__completions": {
+            "main": "./lib/actions/post_payments__transId__completions.js",
+            "title": "Complete pre-auth",
+            "description": "Complete a pre-authorized payment. The amount of the transaction to complete must be less than or equal to the original pre-auth amount. Complete must be set to true.",
+            "fields": {
+                "verbose": {
+                    "viewClass": "CheckBoxView",
+                    "label": "Debug this step (log more data)"
+                }
+            },
+            "metadata": {
+                "in": "./lib/schemas/post_payments__transId__completions.in.json",
+                "out": {
+                    "type": "object"
+                }
+            }
+        },
+        "post_payments__transId__returns": {
+            "main": "./lib/actions/post_payments__transId__returns.js",
+            "title": "Return payment",
+            "description": "Return payment.",
+            "fields": {
+                "verbose": {
+                    "viewClass": "CheckBoxView",
+                    "label": "Debug this step (log more data)"
+                }
+            },
+            "metadata": {
+                "in": "./lib/schemas/post_payments__transId__returns.in.json",
+                "out": {
+                    "type": "object"
+                }
+            }
+        },
+        "post_payments__transId__void": {
+            "main": "./lib/actions/post_payments__transId__void.js",
+            "title": "Void Transaction",
+            "description": "Void a transaction. You can void payments, returns, pre-auths, and completions. It will cancel that transaction.",
+            "fields": {
+                "verbose": {
+                    "viewClass": "CheckBoxView",
+                    "label": "Debug this step (log more data)"
+                }
+            },
+            "metadata": {
+                "in": "./lib/schemas/post_payments__transId__void.in.json",
+                "out": {
+                    "type": "object"
+                }
+            }
+        },
+        "post_profiles": {
+            "main": "./lib/actions/post_profiles.js",
+            "title": "Create Profile",
+            "description": "Create a new Payment Profile using either a card or a Legato token. You must supply one of them.",
+            "fields": {
+                "verbose": {
+                    "viewClass": "CheckBoxView",
+                    "label": "Debug this step (log more data)"
+                }
+            },
+            "metadata": {
+                "in": "./lib/schemas/post_profiles.in.json",
+                "out": {
+                    "type": "object"
+                }
+            }
+        },
+        "delete_profiles__profileId_": {
+            "main": "./lib/actions/delete_profiles__profileId_.js",
+            "title": "Delete profile",
+            "description": "Delete a Payment Profile using the profile ID, also known as the Customer Code.",
+            "fields": {
+                "verbose": {
+                    "viewClass": "CheckBoxView",
+                    "label": "Debug this step (log more data)"
+                }
+            },
+            "metadata": {
+                "in": "./lib/schemas/delete_profiles__profileId_.in.json",
+                "out": {
+                    "type": "object"
+                }
+            }
+        },
+        "get_profiles__profileId_": {
+            "main": "./lib/actions/get_profiles__profileId_.js",
+            "title": "Get profile",
+            "description": "Get a Payment Profile using the profile ID, also known as the Customer Code.",
+            "fields": {
+                "verbose": {
+                    "viewClass": "CheckBoxView",
+                    "label": "Debug this step (log more data)"
+                }
+            },
+            "metadata": {
+                "in": "./lib/schemas/get_profiles__profileId_.in.json",
+                "out": {
+                    "type": "object"
+                }
+            }
+        },
+        "put_profiles__profileId_": {
+            "main": "./lib/actions/put_profiles__profileId_.js",
+            "title": "Update Profile",
+            "description": "Create a new Payment Profile using either a card or a Legato token. You must supply one of them.",
+            "fields": {
+                "verbose": {
+                    "viewClass": "CheckBoxView",
+                    "label": "Debug this step (log more data)"
+                }
+            },
+            "metadata": {
+                "in": "./lib/schemas/put_profiles__profileId_.in.json",
+                "out": {
+                    "type": "object"
+                }
+            }
+        },
+        "get_profiles__profileId__cards": {
+            "main": "./lib/actions/get_profiles__profileId__cards.js",
+            "title": "Get cards",
+            "description": "Get all of the cards on the profile.",
+            "fields": {
+                "verbose": {
+                    "viewClass": "CheckBoxView",
+                    "label": "Debug this step (log more data)"
+                }
+            },
+            "metadata": {
+                "in": "./lib/schemas/get_profiles__profileId__cards.in.json",
+                "out": {
+                    "type": "object"
+                }
+            }
+        },
+        "post_profiles__profileId__cards": {
+            "main": "./lib/actions/post_profiles__profileId__cards.js",
+            "title": "Add card",
+            "description": "Add a card to the profile. Note that there is a default limit of 1 card per profile. You can change this in your Profiles settings in the back office.",
+            "fields": {
+                "verbose": {
+                    "viewClass": "CheckBoxView",
+                    "label": "Debug this step (log more data)"
+                }
+            },
+            "metadata": {
+                "in": "./lib/schemas/post_profiles__profileId__cards.in.json",
+                "out": {
+                    "type": "object"
+                }
+            }
+        },
+        "delete_profiles__profileId__cards__cardId_": {
+            "main": "./lib/actions/delete_profiles__profileId__cards__cardId_.js",
+            "title": "Delete card",
+            "description": "Delete a card on the profile.",
+            "fields": {
+                "verbose": {
+                    "viewClass": "CheckBoxView",
+                    "label": "Debug this step (log more data)"
+                }
+            },
+            "metadata": {
+                "in": "./lib/schemas/delete_profiles__profileId__cards__cardId_.in.json",
+                "out": {
+                    "type": "object"
+                }
+            }
+        },
+        "put_profiles__profileId__cards__cardId_": {
+            "main": "./lib/actions/put_profiles__profileId__cards__cardId_.js",
+            "title": "Update card",
+            "description": "Update the details of a card on the profile.",
+            "fields": {
+                "verbose": {
+                    "viewClass": "CheckBoxView",
+                    "label": "Debug this step (log more data)"
+                }
+            },
+            "metadata": {
+                "in": "./lib/schemas/put_profiles__profileId__cards__cardId_.in.json",
+                "out": {
+                    "type": "object"
+                }
+            }
+        },
+        "post_reports": {
+            "main": "./lib/actions/post_reports.js",
+            "title": "Search Query",
+            "description": "Query for transactions using a date range and optional search criteria. This method allows you to page your search results if you are expecting a lot of results to be returned. The page start value begins at 1. If no records are found the API will return a 404 error message. For details on the parameters and allowed values for Criteria please visit the documentation http://developer.beanstream.com/documentation/analyze-payments/search-specific-criteria/",
+            "fields": {
+                "verbose": {
+                    "viewClass": "CheckBoxView",
+                    "label": "Debug this step (log more data)"
+                }
+            },
+            "metadata": {
+                "in": "./lib/schemas/post_reports.in.json",
+                "out": {
+                    "type": "object"
+                }
+            }
+        },
+        "post_scripts_tokenization_tokens": {
+            "main": "./lib/actions/post_scripts_tokenization_tokens.js",
+            "title": "Tokenize credit card",
+            "description": "NOTE that the full URL for this API call is https://www.beanstream.com/scripts/tokenization/tokens. Turn a credit card into a token using this service. This helps lessen your PCI scope by not passing the credit card information to your server. Instead you turn the card number into a token in the client app, then send the token to the server. When you send the token to Beanstream to make a payment, Beanstream then looks up the card number from that token and makes the payment. Tokens can also be used to create payment profiles.",
+            "fields": {
+                "verbose": {
+                    "viewClass": "CheckBoxView",
+                    "label": "Debug this step (log more data)"
+                }
+            },
+            "metadata": {
+                "in": "./lib/schemas/post_scripts_tokenization_tokens.in.json",
+                "out": {
+                    "type": "object"
+                }
+            }
+        }
+    }
+}

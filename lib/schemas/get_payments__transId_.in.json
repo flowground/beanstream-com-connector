@@ -1,0 +1,10 @@
+{
+    "type": "object",
+    "properties": {
+        "transId": {
+            "required": true,
+            "type": "number",
+            "format": "integer"
+        }
+    }
+}

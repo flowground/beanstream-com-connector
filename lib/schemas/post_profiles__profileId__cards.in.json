@@ -1,0 +1,30 @@
+{
+    "type": "object",
+    "properties": {
+        "profileId": {
+            "required": true,
+            "type": "string"
+        },
+        "requestBody": {
+            "properties": {
+                "expiry_month": {
+                    "description": "digits(2)",
+                    "type": "string"
+                },
+                "expiry_year": {
+                    "description": "digits(2)",
+                    "type": "string"
+                },
+                "name": {
+                    "description": "cardholder name. alphanumeric(64)",
+                    "type": "string"
+                },
+                "number": {
+                    "description": "Credit card number. digits(20)",
+                    "type": "string"
+                }
+            },
+            "type": "object"
+        }
+    }
+}

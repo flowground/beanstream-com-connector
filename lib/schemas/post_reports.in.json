@@ -1,0 +1,63 @@
+{
+    "type": "object",
+    "properties": {
+        "requestBody": {
+            "properties": {
+                "criteria": {
+                    "description": "Optional search criteria. All criteria are ANDed together.",
+                    "items": {
+                        "properties": {
+                            "field": {
+                                "description": "Refer to the table on this page for the searchable fields http://developer.beanstream.com/documentation/analyze-payments/search-specific-criteria/",
+                                "format": "integer",
+                                "type": "number"
+                            },
+                            "operator": {
+                                "description": "URL encoded comparators such as less than, greater than, equals... Refer to the table on this page for the full list of comparators http://developer.beanstream.com/documentation/analyze-payments/search-specific-criteria/",
+                                "type": "string"
+                            },
+                            "value": {
+                                "description": "The value you want to match against.",
+                                "type": "string"
+                            }
+                        },
+                        "type": "object"
+                    },
+                    "type": "array"
+                },
+                "end_date": {
+                    "description": "The end date (inclusive) '2015-04-22T10:03:19' in the timezone of your merchant account.",
+                    "type": "string"
+                },
+                "end_row": {
+                    "default": 2,
+                    "description": "Used to page the results. 1-based. This should always be 1 larger than start_row.",
+                    "format": "integer",
+                    "type": "number"
+                },
+                "name": {
+                    "description": "Only accepts 2 values. Can be either 'Search' for all fields or 'TransHistoryMinimal' for a subset of the fields returned in the results.",
+                    "type": "string"
+                },
+                "start_date": {
+                    "description": "The start date (inclusive) '2015-04-22T10:03:19' in the timezone of your merchant account.",
+                    "type": "string"
+                },
+                "start_row": {
+                    "default": 1,
+                    "description": "Used to page the results. 1-based",
+                    "format": "integer",
+                    "type": "number"
+                }
+            },
+            "required": [
+                "name",
+                "start_date",
+                "end_date",
+                "start_row",
+                "end_row"
+            ],
+            "type": "object"
+        }
+    }
+}

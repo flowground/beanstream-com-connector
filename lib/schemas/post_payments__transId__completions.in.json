@@ -1,0 +1,242 @@
+{
+    "type": "object",
+    "properties": {
+        "transId": {
+            "required": true,
+            "type": "number",
+            "format": "double"
+        },
+        "requestBody": {
+            "properties": {
+                "amount": {
+                    "description": "A decimal value in dollars, or relevant currency. digits(9)",
+                    "format": "double",
+                    "type": "number"
+                },
+                "billing": {
+                    "description": "The billing address",
+                    "properties": {
+                        "address_line1": {
+                            "description": "alphanumeric (64)",
+                            "type": "string"
+                        },
+                        "address_line2": {
+                            "description": "alphanumeric (64)",
+                            "type": "string"
+                        },
+                        "city": {
+                            "description": "alphanumeric (32)",
+                            "type": "string"
+                        },
+                        "country": {
+                            "description": "characters (2)",
+                            "type": "string"
+                        },
+                        "email_address": {
+                            "description": "alphanumeric (32)",
+                            "type": "string"
+                        },
+                        "name": {
+                            "description": "alphanumeric (64)",
+                            "type": "string"
+                        },
+                        "phone_number": {
+                            "description": "alphanumeric (32)",
+                            "type": "string"
+                        },
+                        "postal_code": {
+                            "description": "alphanumeric (16)",
+                            "type": "string"
+                        },
+                        "province": {
+                            "description": "characters (2)",
+                            "type": "string"
+                        }
+                    },
+                    "type": "object"
+                },
+                "card": {
+                    "description": "Payment with a credit card. The payment_method must be 'card'",
+                    "properties": {
+                        "complete": {
+                            "default": true,
+                            "description": "set to false for Pre-Authorize, and true to complete a payment",
+                            "type": "boolean"
+                        },
+                        "cvd": {
+                            "default": "123",
+                            "description": "Security code on the back of the credit card. This can be set to mandatory in the back office. digits(3 or 4)",
+                            "type": "string"
+                        },
+                        "expiry_month": {
+                            "default": "02",
+                            "description": "eg. 02 for February. digits(2)",
+                            "type": "string"
+                        },
+                        "expiry_year": {
+                            "default": "18",
+                            "description": "eg. 15 for 2015. digits(2)",
+                            "type": "string"
+                        },
+                        "name": {
+                            "description": "Card holder name. alphanumeric(64)",
+                            "type": "string"
+                        },
+                        "number": {
+                            "default": "5100000010001004",
+                            "description": "Credit card number (PAN). digits(20)",
+                            "type": "string"
+                        }
+                    },
+                    "required": [
+                        "name",
+                        "number",
+                        "expiry_month",
+                        "expiry_year"
+                    ],
+                    "type": "object"
+                },
+                "comments": {
+                    "description": "alphanumeric (256)",
+                    "type": "string"
+                },
+                "custom": {
+                    "properties": {
+                        "ref1": {
+                            "description": "alphanumeric (256)",
+                            "type": "string"
+                        },
+                        "ref2": {
+                            "description": "alphanumeric (256)",
+                            "type": "string"
+                        },
+                        "ref3": {
+                            "description": "alphanumeric (256)",
+                            "type": "string"
+                        },
+                        "ref4": {
+                            "description": "alphanumeric (256)",
+                            "type": "string"
+                        },
+                        "ref5": {
+                            "description": "alphanumeric (256)",
+                            "type": "string"
+                        }
+                    },
+                    "type": "object"
+                },
+                "customer_ip": {
+                    "description": "alphanumeric (30)",
+                    "type": "string"
+                },
+                "language": {
+                    "description": "characters (3)",
+                    "type": "string"
+                },
+                "order_number": {
+                    "description": "A unique order number. alphanumeric(30)",
+                    "type": "string"
+                },
+                "payment_method": {
+                    "description": "One of (card, token, payment_profile, cash, cheque). characters(20)",
+                    "type": "string"
+                },
+                "payment_profile": {
+                    "description": "Payment with a Payment Profile. The payment_method must be 'payment_profile'",
+                    "properties": {
+                        "card_id": {
+                            "description": "Which credit card to use. Starts at 1 for the first card. You must configure how many cards can be stored by visiting the profile options in the back office. digits(1)",
+                            "type": "integer"
+                        },
+                        "complete": {
+                            "description": "Set to FALSE for pre-auth. digit(1) or boolean",
+                            "type": "boolean"
+                        },
+                        "customer_code": {
+                            "description": "The payment profile ID. alphanumeric(32)",
+                            "type": "string"
+                        }
+                    },
+                    "required": [
+                        "customer_code",
+                        "card_id"
+                    ],
+                    "type": "object"
+                },
+                "shipping": {
+                    "description": "The shipping address",
+                    "properties": {
+                        "address_line1": {
+                            "description": "alphanumeric (64)",
+                            "type": "string"
+                        },
+                        "address_line2": {
+                            "description": "alphanumeric (64)",
+                            "type": "string"
+                        },
+                        "city": {
+                            "description": "alphanumeric (32)",
+                            "type": "string"
+                        },
+                        "country": {
+                            "description": "characters (2)",
+                            "type": "string"
+                        },
+                        "email_address": {
+                            "description": "alphanumeric (32)",
+                            "type": "string"
+                        },
+                        "name": {
+                            "description": "alphanumeric (64)",
+                            "type": "string"
+                        },
+                        "phone_number": {
+                            "description": "alphanumeric (32)",
+                            "type": "string"
+                        },
+                        "postal_code": {
+                            "description": "alphanumeric (16)",
+                            "type": "string"
+                        },
+                        "province": {
+                            "description": "characters (2)",
+                            "type": "string"
+                        }
+                    },
+                    "type": "object"
+                },
+                "term_url": {
+                    "description": "alphanumeric (256)",
+                    "type": "string"
+                },
+                "token": {
+                    "description": "Payment with a Legato token. The payment_method must be 'token'",
+                    "properties": {
+                        "code": {
+                            "description": "the payment token you retrieved from the Legato service. alphanumeric(36)",
+                            "type": "string"
+                        },
+                        "complete": {
+                            "description": "Set to FALSE for pre-auth",
+                            "type": "boolean"
+                        },
+                        "name": {
+                            "description": "Card holder name. alphanumeric(64)",
+                            "type": "string"
+                        }
+                    },
+                    "required": [
+                        "code",
+                        "name"
+                    ],
+                    "type": "object"
+                }
+            },
+            "required": [
+                "amount",
+                "payment_method"
+            ],
+            "type": "object"
+        }
+    }
+}
